@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D737CDF2A5DD326000A79A0 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D737CDE2A5DD326000A79A0 /* ImagesListCell.swift */; };
 		3DB225552A50A92C0055EE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB225542A50A92C0055EE86 /* AppDelegate.swift */; };
 		3DB225572A50A92C0055EE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB225562A50A92C0055EE86 /* SceneDelegate.swift */; };
-		3DB225592A50A92C0055EE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB225582A50A92C0055EE86 /* ViewController.swift */; };
+		3DB225592A50A92C0055EE86 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB225582A50A92C0055EE86 /* ImagesListViewController.swift */; };
 		3DB2255C2A50A92C0055EE86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB2255A2A50A92C0055EE86 /* Main.storyboard */; };
 		3DB2255F2A50A92C0055EE86 /* ImageGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3DB2255D2A50A92C0055EE86 /* ImageGram.xcdatamodeld */; };
 		3DB225612A50A92C0055EE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB225602A50A92C0055EE86 /* Assets.xcassets */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D737CDE2A5DD326000A79A0 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		3DB225512A50A92C0055EE86 /* ImageGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB225542A50A92C0055EE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB225562A50A92C0055EE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3DB225582A50A92C0055EE86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DB225582A50A92C0055EE86 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		3DB2255B2A50A92C0055EE86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DB2255E2A50A92C0055EE86 /* ImageGram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageGram.xcdatamodel; sourceTree = "<group>"; };
 		3DB225602A50A92C0055EE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D737CE02A5DD49C000A79A0 /* ImagesList */ = {
+			isa = PBXGroup;
+			children = (
+				3DB225582A50A92C0055EE86 /* ImagesListViewController.swift */,
+				3D737CDE2A5DD326000A79A0 /* ImagesListCell.swift */,
+			);
+			path = ImagesList;
+			sourceTree = "<group>";
+		};
 		3DB225482A50A92C0055EE86 = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +71,12 @@
 			children = (
 				3DB225542A50A92C0055EE86 /* AppDelegate.swift */,
 				3DB225562A50A92C0055EE86 /* SceneDelegate.swift */,
-				3DB225582A50A92C0055EE86 /* ViewController.swift */,
+				3D737CE02A5DD49C000A79A0 /* ImagesList */,
 				3DB2255A2A50A92C0055EE86 /* Main.storyboard */,
-				3DB225602A50A92C0055EE86 /* Assets.xcassets */,
-				3DB225622A50A92C0055EE86 /* LaunchScreen.storyboard */,
-				3DB225652A50A92C0055EE86 /* Info.plist */,
 				3DB2255D2A50A92C0055EE86 /* ImageGram.xcdatamodeld */,
+				3DB225622A50A92C0055EE86 /* LaunchScreen.storyboard */,
+				3DB225602A50A92C0055EE86 /* Assets.xcassets */,
+				3DB225652A50A92C0055EE86 /* Info.plist */,
 			);
 			path = ImageGram;
 			sourceTree = "<group>";
@@ -142,7 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB2255F2A50A92C0055EE86 /* ImageGram.xcdatamodeld in Sources */,
-				3DB225592A50A92C0055EE86 /* ViewController.swift in Sources */,
+				3DB225592A50A92C0055EE86 /* ImagesListViewController.swift in Sources */,
+				3D737CDF2A5DD326000A79A0 /* ImagesListCell.swift in Sources */,
 				3DB225552A50A92C0055EE86 /* AppDelegate.swift in Sources */,
 				3DB225572A50A92C0055EE86 /* SceneDelegate.swift in Sources */,
 			);
