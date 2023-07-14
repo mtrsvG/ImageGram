@@ -37,8 +37,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27 Августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8p-1J-wsO" userLabel="Date label">
-                                                    <rect key="frame" x="24" y="203" width="353" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="24" y="208.33333333333334" width="353" height="15.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -68,9 +68,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="buttonCell" destination="YkF-Na-xyV" id="oDP-k1-x16"/>
-                                            <outlet property="dateLabelCell" destination="o8p-1J-wsO" id="QeB-az-8Ky"/>
-                                            <outlet property="imageCell" destination="bZr-GR-d5C" id="ndd-G2-l7W"/>
+                                            <outlet property="cellImage" destination="bZr-GR-d5C" id="ndd-G2-l7W"/>
+                                            <outlet property="dateLabel" destination="o8p-1J-wsO" id="QeB-az-8Ky"/>
+                                            <outlet property="likeButton" destination="YkF-Na-xyV" id="oDP-k1-x16"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

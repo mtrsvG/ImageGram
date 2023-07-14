@@ -30,19 +30,15 @@ class ImagesListViewController: UIViewController, UITableViewDataSource{
     }
     
     
-    func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
+    private func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
         guard let image = UIImage(named: "\(photosName[indexPath.row])") else {
             return
         }
-        cell.imageCell.image = image
-        cell.dateLabelCell.text = dateFormatter.string(from: Date())
+        cell.cellImage.image = image
+        cell.dateLabel.text = dateFormatter.string(from: Date())
         
-        if indexPath.row % 2 == 0 {
-            cell.buttonCell.setImage(UIImage(named: "Button_off"), for: .normal)
-        } else {
-            cell.buttonCell.setImage(UIImage(named: "Button_on"), for: .normal)
-        }
-        
+        let likeButtonImage = indexPath.row % 2 == 0 ? UIImage(named: "Button_off") : UIImage(named: "Button_on")
+        cell.likeButton.setImage(likeButtonImage, for: .normal)
     }
     
     
