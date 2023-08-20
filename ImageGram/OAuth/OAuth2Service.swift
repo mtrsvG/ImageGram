@@ -9,14 +9,15 @@ import Foundation
 
 final class OAuth2Service {
     static let shared = OAuth2Service()
+    
     private let urlSession = URLSession.shared
 
     private (set) var authToken: String? {
         get {
-            return OAuth2TokenStorage().token
+            return OAuth2TokenStorage.shared.token
         }
         set {
-            OAuth2TokenStorage().token = newValue
+            OAuth2TokenStorage.shared.token = newValue
         }
     }
     
@@ -45,10 +46,11 @@ extension OAuth2Service {
         for request: URLRequest,
         completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void
     ) -> URLSessionTask {
-    let decoder = JSONDecoder()
-    return urlSession.data(for: request) { (result: Result<Data, Error>) in
-        let response = result.flatMap { data -> Result<OAuthTokenResponseBody, Error> in
-            Result { try decoder.decode(OAuthTokenResponseBody.self, from: data) }
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return urlSession.data(for: request) { (result: Result<Data, Error>) in
+            let response = result.flatMap { data -> Result<OAuthTokenResponseBody, Error> in
+                Result { try decoder.decode(OAuthTokenResponseBody.self, from: data) }
             
         }
         completion(response)
@@ -58,28 +60,15 @@ extension OAuth2Service {
 
     private func authTokenRequest(code: String) -> URLRequest {
         URLRequest.makeHTTPRequest(
-                    path: "/oauth/token"
-                    + "?client_id=\(AccessKey)"
-                    + "&&client_secret=\(SecretKey)"
-                    + "&&redirect_uri=\(RedirectURI)"
+            path: WebConstants.tokenRequestPathString
+                    + "?client_id=\(WebConstants.AccessKey)"
+                    + "&&client_secret=\(WebConstants.SecretKey)"
+                    + "&&redirect_uri=\(WebConstants.RedirectURI)"
                     + "&&code=\(code)"
-                    + "&&grant_type=authorization_code",
-                    httpMethod: "POST",
-                    baseURL: URL(string: "https://unsplash.com")!
+                    + "&&grant_type=\(WebConstants.GrantType)",
+                    httpMethod: WebConstants.OAuthHttpMethod,
+                    baseURL: URL(string: WebConstants.OAuthBaseUrl)!
                 )
-    }
-
-    private struct OAuthTokenResponseBody: Decodable {
-        let accessToken: String
-        let tokenType: String
-        let scope: String
-        let createdAt: Int
-        enum CodingKeys: String, CodingKey {
-            case accessToken = "access_token"
-            case tokenType = "token_type"
-            case scope
-            case createdAt = "created_at"
-        }
     }
 }
 
@@ -88,7 +77,7 @@ extension URLRequest {
     static func makeHTTPRequest(
         path: String,
         httpMethod: String,
-        baseURL: URL = DefaultBaseURL!
+        baseURL: URL = WebConstants.DefaultBaseURL!
     ) -> URLRequest {
         var request = URLRequest(url: URL(string: path, relativeTo: baseURL)!)
         request.httpMethod = httpMethod

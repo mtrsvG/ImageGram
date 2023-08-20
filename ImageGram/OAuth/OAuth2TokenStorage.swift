@@ -13,7 +13,10 @@ final class OAuth2TokenStorage {
         case token
     }
     
-    private var userDefaults = UserDefaults.standard
+    static let shared = OAuth2TokenStorage()
+    
+    
+    private let userDefaults = UserDefaults.standard
     
     var token: String? {
         get {
@@ -23,4 +26,6 @@ final class OAuth2TokenStorage {
             userDefaults.set(newValue, forKey: key.token.rawValue)
         }
     }
+    
+    private init() {}
 }
