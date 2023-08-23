@@ -100,6 +100,4 @@ extension WebViewViewController: WKNavigationDelegate {
             decisionHandler(.allow)
         }
     }
-    
-
 }

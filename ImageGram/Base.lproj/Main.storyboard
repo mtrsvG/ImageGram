@@ -19,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-g1-QPL">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <color key="backgroundColor" red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageListCell" rowHeight="236" id="8iC-KM-5tc" customClass="ImagesListCell" customModule="ImageGram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="236"/>
@@ -53,7 +53,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="YkF-Na-xyV" firstAttribute="top" secondItem="bZr-GR-d5C" secondAttribute="top" id="0o7-cR-eBg"/>
                                                 <constraint firstItem="bZr-GR-d5C" firstAttribute="bottom" secondItem="o8p-1J-wsO" secondAttribute="bottom" constant="8" id="Ar2-av-SzE"/>
@@ -66,6 +66,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="bZr-GR-d5C" secondAttribute="bottom" constant="4" id="pty-v5-AtJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.10196078431372549" green="0.10588235294117647" blue="0.13333333333333333" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cellImage" destination="bZr-GR-d5C" id="ndd-G2-l7W"/>
                                             <outlet property="dateLabel" destination="o8p-1J-wsO" id="QeB-az-8Ky"/>
