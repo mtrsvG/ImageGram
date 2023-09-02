@@ -170,6 +170,8 @@
 			dependencies = (
 			);
 			name = ImageGram;
+			packageProductDependencies = (
+			);
 			productName = ImageGram;
 			productReference = 3DB225512A50A92C0055EE86 /* ImageGram.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +200,8 @@
 				Base,
 			);
 			mainGroup = 3DB225482A50A92C0055EE86;
+			packageReferences = (
+			);
 			productRefGroup = 3DB225522A50A92C0055EE86 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
