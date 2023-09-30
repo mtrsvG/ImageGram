@@ -8,8 +8,9 @@
 import UIKit
 
 final class AuthViewController: UIViewController {
-    private let oauth2Service = OAuth2Service.shared
     
+    private let oauth2Service = OAuth2Service.shared
+
     private let showWebViewSegueIdentifier = "ShowWebView"
     
     weak var delegate: AuthViewControllerDelegate?

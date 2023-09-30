@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
+    var profile: ProfileService.Profile?
+    private var profileImageServiceObserver: NSObjectProtocol?
+    
+    private var profileService = ProfileService.shared
+    
     @IBOutlet var userAvatarImage: UIImageView!
     
     @IBOutlet var userInfoLabel: UILabel!
@@ -27,10 +33,56 @@ class ProfileViewController: UIViewController {
         setUserStatusLabel(label: userStatusLabel)
         setExitButton()
     }
+    
+    
+    private func updateAvatar() {
+        guard
+            let avatarURL = ProfileImageService.shared.avatarURL,
+            let url = URL(string: avatarURL)
+        else { return }
+        let cache = ImageCache.default
+        cache.clearMemoryCache()
+        cache.clearDiskCache()
+        
+        let avatarPlaceholderImage = UIImage(named: "0")
+        
+        let processor = RoundCornerImageProcessor(cornerRadius: 61)
+        userAvatarImage.kf.indicatorType = .activity
+        userAvatarImage.kf.setImage(
+            with: url,
+            placeholder: avatarPlaceholderImage,
+            options: [.processor(processor)]
+        )
+
+    }
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let profile = profileService.profile else { return }
+        updateProfileInfo(profile: profile)
+    }
+    
 }
 
 
 extension ProfileViewController {
+    func updateProfileInfo(profile: ProfileService.Profile) {
+        userInfoLabel.text = profile.name
+        userNicknameLabel.text = profile.loginName
+        userStatusLabel.text = profile.bio
+        profileImageServiceObserver = NotificationCenter.default.addObserver(
+            forName: ProfileImageService.DidChangeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self = self else { return }
+            self.updateAvatar()
+        }
+        updateAvatar()
+        
+    }
     
     func setAvatar(image: UIImageView?)  {
         userAvatarImage = UIImageView()
@@ -92,8 +144,8 @@ extension ProfileViewController {
     
     func setExitButton() {
         let exitButton = UIButton.systemButton(with: UIImage(named: "Button_exit")!,
-                                           target: self,
-                                           action: nil)
+                                               target: self,
+                                               action: nil)
         exitButton.translatesAutoresizingMaskIntoConstraints = false
         exitButton.imageView?.tintColor = UIColor(named: "YP Red")
         view.addSubview(exitButton)
