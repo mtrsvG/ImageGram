@@ -15,6 +15,7 @@ final class ProfileImageService {
     private(set) var avatarURL: String?
     private var task: URLSessionTask?
     private let urlSession = URLSession.shared
+    private init() {}
     
     struct UserResult: Decodable {
         let profileImage: ProfileImage?
